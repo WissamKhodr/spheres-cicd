@@ -30,7 +30,7 @@ export default function SphereMap({ sphere }: { sphere: Sphere }) {
     const [pinText, setPinText] = useState("");
     const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
     const [showInviteCode, setShowInviteCode] = useState(false);
-    const [currentUserId, setCurrentUserId] = useState<number | null>(null);
+    const [, setCurrentUserId] = useState<number | null>(null);
 
     const fetchPins = () => {
         getPins(sphere.id).then(result => {
