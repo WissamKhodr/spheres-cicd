@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+.gitignore
+postgres-data
+dev-docker.yaml
+*.md
+.env*
