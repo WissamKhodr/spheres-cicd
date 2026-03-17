@@ -3,7 +3,6 @@
 import { db } from "@/db";
 import { spheresTable } from "@/db/schema";
 import { sphereMembersTable } from "@/db/schema";
-import { usersTable } from "@/db/schema";
 import { getCurrentUser } from "@/lib/auth/sessions/actions";
 import { eq } from "drizzle-orm";
 

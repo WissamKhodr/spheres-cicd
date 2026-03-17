@@ -3,7 +3,7 @@ import { logout } from "@/lib/auth";
 import { useActionState } from "react";
 
 export default function Logout() {
-  const [state, action, pending] = useActionState(logout, null);
+  const [, action, pending] = useActionState(logout, null);
   return (
     <div>
         <form action={action}>

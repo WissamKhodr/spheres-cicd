@@ -8,7 +8,7 @@ import Link from "next/link";
 
 
 export default function Home() {
-  const [state, action, pending] = useActionState(logout, null);
+  const [, action, pending] = useActionState(logout, null);
   const [userSpheres, setUserSpheres] = useState<Sphere[]>([]);
   const [selectedSphere, setSelectedSphere] = useState<Sphere | null>(null);
   const [showCreateSphere, setShowCreateSphere] = useState(false);
@@ -46,7 +46,7 @@ export default function Home() {
   }, [])
 
   async function handleJoinSphere() {
-    const res = await joinSphere(joinCode.toUpperCase());
+    await joinSphere(joinCode.toUpperCase());
     getSpheres();
 
     setShowJoinModal(false);

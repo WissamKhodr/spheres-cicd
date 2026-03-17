@@ -23,7 +23,7 @@ interface Pin {
 let markers: maplibregl.Marker[] = [];
 
 export default function SphereMap({ sphere }: { sphere: Sphere }) {
-    const [pins, setPins] = useState<Pin[]>([]);
+    const [, setPins] = useState<Pin[]>([]);
     const [showCreatePin, setShowCreatePin] = useState(false);
     const [clickCoords, setClickCoords] = useState<maplibregl.LngLat | null>(null);
     const [selectedEmoji, setSelectedEmoji] = useState("😀");
@@ -45,7 +45,7 @@ export default function SphereMap({ sphere }: { sphere: Sphere }) {
                 body: pin.body,
                 createdAt: pin.createdAt,
                 creatorId: pin.creatorId,
-                creatorName: (pin as any).creatorName ?? null,
+                creatorName: (pin as unknown as { creatorName?: string }).creatorName ?? null,
                 likes: pin.likes,
                 dislikes: pin.dislikes,
                 myVote: pin.myVote as 1 | -1 | null,
@@ -112,6 +112,7 @@ export default function SphereMap({ sphere }: { sphere: Sphere }) {
 
     useEffect(() => {
         fetchPins();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mapInstance])
 
     async function handleCreatePin() {

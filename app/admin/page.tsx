@@ -1,7 +1,5 @@
-import Link from 'next/link';
 import { db } from '@/db';
 import { usersTable, spheresTable, reportsTable, pinsTable } from '@/db/schema';
-import { eq } from 'drizzle-orm';
 import { getCurrentUser } from '@/lib/auth/sessions/actions';
 import { redirect } from 'next/navigation';
 import { adminDeletePin, adminDeleteAccount, adminBanAccount, adminRestoreAccount, adminMakeAdmin, adminDemoteAdmin } from '@/actions/admin';
